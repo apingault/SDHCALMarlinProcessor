@@ -57,13 +57,6 @@ ENDIF()
 
 
 ### LIBRARY #################################################################
-
-# definitions to pass to the compiler
-#LIST(APPEND ${CMAKE_CXX_FLAGS} "-Wall -ansi -pedantic" )
-#LIST(APPEND ${CMAKE_CXX_FLAGS} "-Wno-long-long" )
-
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -ansi -pedantic -Wno-long-long")
-
 # include directories
 INCLUDE_DIRECTORIES( ./include )
 #INSTALL_DIRECTORY( ./include DESTINATION . FILES_MATCHING PATTERN "*.h" )
