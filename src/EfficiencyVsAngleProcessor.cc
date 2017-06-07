@@ -474,8 +474,11 @@ void EfficiencyVsAngleProcessor::processEvent( LCEvent * evt )
 			{
 				CalorimeterHit * hit = dynamic_cast<CalorimeterHit*>( col->getElementAt( j ) ) ;
 				CLHEP::Hep3Vector vec(hit->getPosition()[0],hit->getPosition()[1],hit->getPosition()[2]);
-				int cellID[] = {IDdecoder(hit)["I"],IDdecoder(hit)["J"],IDdecoder(hit)["K-1"]} ;
-
+				int cellID[] = {static_cast<int>(IDdecoder(hit)["I"]),
+												static_cast<int>(IDdecoder(hit)["J"]),
+												static_cast<int>(IDdecoder(hit)["K-1"])
+											} ;
+											
 				if ( cellID[2] > _nActiveLayers )
 					continue ;
 
@@ -514,7 +517,7 @@ void EfficiencyVsAngleProcessor::clearVec()
 }
 
 
-void EfficiencyVsAngleProcessor::check( LCEvent * evt )
+void EfficiencyVsAngleProcessor::check( LCEvent * /*evt*/ )
 {
 	// nothing to check here - could be used to fill checkplots in reconstruction processor
 }
